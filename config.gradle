@@ -1,0 +1,92 @@
+ext {
+
+    android = [
+            compileSdkVersion: 27,
+            buildToolsVersion: "27.0.3",
+            applicationId    : "com.directly.luckyboard",
+            minSdkVersion    : 15,
+            targetSdkVersion : 27,
+            versionCode      : 1,
+            versionName      : "1.0"
+    ]
+
+    aaa = [
+            "support_version"                      : "27.1.1",
+            "constraint_veision"                   : "1.1.0",
+            "smartrefresh_Version"                 : "1.0.5.1",
+            "banner_Version"                       : "1.4.10",
+            "FlycoTabLayout_Lib_version"           : "2.1.2@aar",
+            "VerticalTabLayout_version"            : "1.2.5",
+            "flowlayout_version"                   : "1.1.2",
+            "agentweb_version"                     : "4.0.2",
+            "gson_version"                         : "2.8.2",
+            "okhttp3_version"                      : "3.9.0",
+            "retrofit_version"                     : "2.3.0",
+            "glide_version"                        : "4.0.0",
+            "rxjava_version"                       : "2.1.5",
+            "rxandroid_version"                    : "2.0.1",
+            "rxbinding_version"                    : "2.1.0",
+            "rxpermissions_version"                : "0.9.5@aar",
+            "greendao_version"                     : "3.2.2",
+            "dagger_version"                       : "2.0.2",
+            "annotation_version"                   : "10.0-b28",
+            "butterknife_version"                  : "8.8.1",
+            "multidex_version"                     : "1.0.3",
+            "lottie_version"                       : "2.3.0",
+            "BaseRecyclerViewAdapterHelper_version": "2.9.34",
+            "fragmentation_version"                : "1.1.9",
+            "logger_version"                       : "2.1.1",
+            "githubwing_version"                   : "1.2.3",
+            "leakcanary_version"                   : "1.5.4",
+    ]
+
+    dependencies = [
+            "appcompat-v7"                 : "com.android.support:appcompat-v7:${aaa.support_version}",
+            "cardview-v7"                  : "com.android.support:cardview-v7:${aaa.support_version}",
+            "recyclerview-v7"              : "com.android.support:recyclerview-v7:${aaa.support_version}",
+            "design"                       : "com.android.support:design:${aaa.support_version}",
+            "constraint"                   : "com.android.support.constraint:constraint-layout:${aaa.constraint_veision}",
+
+            "SmartRefreshLayout"           : "com.scwang.smartrefresh:SmartRefreshLayout:${aaa.smartrefresh_Version}",
+            "SmartRefreshHeader"           : "com.scwang.smartrefresh:SmartRefreshHeader:${aaa.smartrefresh_Version}",
+            "banner"                       : "com.youth.banner:banner:${aaa.banner_Version}",
+            "FlycoTabLayout_Lib"           : "com.flyco.tablayout:FlycoTabLayout_Lib:${aaa.FlycoTabLayout_Lib_version}",
+            "VerticalTabLayout"            : "q.rorbin:VerticalTabLayout:${aaa.VerticalTabLayout_version}",
+            "flowlayout"                   : "com.hyman:flowlayout-lib:${aaa.flowlayout_version}",
+            "agentweb"                     : "com.just.agentweb:agentweb:${aaa.agentweb_version}",
+
+            "gson"                         : "com.google.code.gson:gson:${aaa.gson_version}",
+            "okhttp3"                      : "com.squareup.okhttp3:okhttp:${aaa.okhttp3_version}",
+            "interceptor"                  : "com.squareup.okhttp3:logging-interceptor:${aaa.okhttp3_version}",
+            "retrofit"                     : "com.squareup.retrofit2:retrofit:${aaa.retrofit_version}",
+            "converter-gson"               : "com.squareup.retrofit2:converter-gson:${aaa.retrofit_version}",
+            "adapter-rxjava2"              : "com.squareup.retrofit2:adapter-rxjava2:${aaa.retrofit_version}",
+            "glide"                        : "com.github.bumptech.glide:glide:${aaa.glide_version}",
+            "compiler"                     : "com.github.bumptech.glide:compiler:${aaa.glide_version}",
+
+            "rxjava"                       : "io.reactivex.rxjava2:rxjava:${aaa.rxjava_version}",
+            "rxandroid"                    : "io.reactivex.rxjava2:rxandroid:${aaa.rxandroid_version}",
+            "rxbinding"                    : "com.jakewharton.rxbinding2:rxbinding:${aaa.rxbinding_version}",
+            "rxpermissions"                : "com.tbruyelle.rxpermissions2:rxpermissions:${aaa.rxpermissions_version}",
+
+            "greendao"                     : "org.greenrobot:greendao:${aaa.greendao_version}",
+
+            "dagger"                       : "com.google.dagger:dagger:${aaa.dagger_version}",
+            "dagger-compiler"              : "com.google.dagger:dagger-compiler:${aaa.dagger_version}",
+            "javax-annotation"             : "org.glassfish:javax.annotation:${aaa.annotation_version}",
+            "butterknife"                  : "com.jakewharton:butterknife:${aaa.butterknife_version}",
+            "butterknife-compiler"         : "com.jakewharton:butterknife-compiler:${aaa.butterknife_version}",
+
+            "multidex"                     : "com.android.support:multidex:${aaa.multidex_version}",
+
+            "lottie"                       : "com.airbnb.android:lottie:${aaa.lottie_version}",
+            "BaseRecyclerViewAdapterHelper": "com.github.CymChad:BaseRecyclerViewAdapterHelper:${aaa.BaseRecyclerViewAdapterHelper_version}",
+            "fragmentation"                : "me.yokeyword:fragmentation:${aaa.fragmentation_version}",
+            "fragmentation-swipeback"      : "me.yokeyword:fragmentation-swipeback:${aaa.fragmentation_version}",
+            "logger"                       : "com.orhanobut:logger:${aaa.logger_version}",
+            "githubwing"                   : "com.github.githubwing:ByeBurger:${aaa.githubwing_version}",
+            "leakcanary-android"           : "com.squareup.leakcanary:leakcanary-android:${aaa.leakcanary_version}",
+            "leakcanary-android-no-op"     : "com.squareup.leakcanary:leakcanary-android-no-op:${aaa.leakcanary_version}",
+    ]
+
+}

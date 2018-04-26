@@ -16,8 +16,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         setContentView(getResourcesId());
         initView();
         initData();
-
-
     }
 
     public void initData() {
