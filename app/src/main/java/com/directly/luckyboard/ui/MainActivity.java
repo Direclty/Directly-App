@@ -1,7 +1,7 @@
 package com.directly.luckyboard.ui;
 
 import com.directly.luckyboard.R;
-import com.directly.luckyboard.base.BaseActivity;
+import com.directly.luckyboard.base.activity.BaseActivity;
 
 /**
  * @author Xiao-Long Zhou

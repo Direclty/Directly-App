@@ -45,6 +45,7 @@ ext {
             "cardview-v7"                  : "com.android.support:cardview-v7:${aaa.support_version}",
             "recyclerview-v7"              : "com.android.support:recyclerview-v7:${aaa.support_version}",
             "design"                       : "com.android.support:design:${aaa.support_version}",
+            "support_4"                    : "com.android.support:support-v4:${aaa.support_version}",
             "constraint"                   : "com.android.support.constraint:constraint-layout:${aaa.constraint_veision}",
 
             "SmartRefreshLayout"           : "com.scwang.smartrefresh:SmartRefreshLayout:${aaa.smartrefresh_Version}",

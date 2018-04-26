@@ -35,6 +35,7 @@ dependencies {
     implementation rootProject.ext.dependencies["cardview-v7"]
     implementation rootProject.ext.dependencies["design"]
     implementation rootProject.ext.dependencies["constraint"]
+    implementation rootProject.ext.dependencies["support_4"]
     //ui-gradle
     implementation rootProject.ext.dependencies["SmartRefreshLayout"]
     implementation rootProject.ext.dependencies["SmartRefreshHeader"]
@@ -79,6 +80,5 @@ dependencies {
     debugImplementation rootProject.ext.dependencies["leakcanary-android"]
     releaseImplementation rootProject.ext.dependencies["leakcanary-android-no-op"]
     testImplementation rootProject.ext.dependencies["leakcanary-android-no-op"]
-
 
 }
