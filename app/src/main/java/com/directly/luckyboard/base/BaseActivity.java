@@ -18,16 +18,31 @@ public abstract class BaseActivity extends AppCompatActivity {
         initData();
     }
 
+    /**
+     * 初始化数据
+     */
     public void initData() {
 
     }
 
+    /**
+     * 初始化控件
+     */
     public void initView() {
+
     }
 
+    /**
+     * 状态栏修改等...
+     */
     public void firstInitMessage() {
 
     }
 
+    /**
+     * 获取资源文件
+     *
+     * @return R.layout
+     */
     protected abstract int getResourcesId();
 }
