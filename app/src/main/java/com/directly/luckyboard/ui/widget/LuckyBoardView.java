@@ -1,4 +1,8 @@
 package com.directly.luckyboard.ui.widget;
 
-public class LuckyBoard {
+/**
+ * @author Xiao-Long Zhou
+ * @date 2018/04/26
+ */
+public class LuckyBoardView {
 }

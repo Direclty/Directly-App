@@ -3,10 +3,10 @@ package com.directly.luckyboard.moudle;
 import android.graphics.Bitmap;
 
 /**
- * @author directly
+ * @author Xiao-Long Zhou
  * @date 2018/04/25
  */
-public class LuckyAward implements Cloneable {
+public class LuckyAwardModel implements Cloneable {
 
     private String name;
     private Bitmap bitmap;
