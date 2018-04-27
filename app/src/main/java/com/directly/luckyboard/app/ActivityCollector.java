@@ -9,7 +9,7 @@ import java.util.Set;
  * @author Xiao-Long Zhou
  * @date 2018/4/26 17:03
  * <p>
- * activity 堆管理
+ * activity 堆管理,关闭App
  */
 
 public class ActivityCollector {

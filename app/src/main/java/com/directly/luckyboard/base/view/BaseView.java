@@ -27,6 +27,6 @@ public interface BaseView {
     /**
      * loading dialog close
      */
-    void dissMissDialog();
+    void closeDialog();
 
 }

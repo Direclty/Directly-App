@@ -9,18 +9,24 @@ import com.directly.luckyboard.base.activity.BaseActivity;
  */
 public class MainActivity extends BaseActivity {
 
+
     @Override
-    protected int getResourcesId() {
-        return R.layout.activity_main;
+    public void start() {
+
     }
 
     @Override
-    public void initView() {
-        super.initView();
+    protected int getLayoutId() {
+        return 0;
     }
 
     @Override
-    public void initData() {
-        super.initData();
+    protected void initEventAndData() {
+
+    }
+
+    @Override
+    protected void initInject() {
+
     }
 }
