@@ -1,28 +1,27 @@
 package com.directly.luckyboard.base.activity;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-
-import me.yokeyword.fragmentation.SupportActivity;
-
 import android.support.v7.widget.Toolbar;
 
 import com.directly.luckyboard.app.ActivityCollector;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import me.yokeyword.fragmentation.SupportActivity;
 
 /**
- * @author Xiao-Long Zhou
- * @date 2018/4/26 17:01
+ * Common simple Activity
+ *
+ * @author quchao
+ * @date 2017/11/28
  */
 
 public abstract class AbstractSimpleActivity extends SupportActivity {
+
     private Unbinder unBinder;
     protected AbstractSimpleActivity mActivity;
 
-    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +53,7 @@ public abstract class AbstractSimpleActivity extends SupportActivity {
     /**
      * 获取当前Activity的UI布局
      *
-     * @return R.layout
+     * @return 布局id
      */
     protected abstract int getLayoutId();
 
@@ -62,4 +61,5 @@ public abstract class AbstractSimpleActivity extends SupportActivity {
      * 初始化数据
      */
     protected abstract void initEventAndData();
+
 }

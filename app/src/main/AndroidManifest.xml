@@ -3,13 +3,14 @@
     package="com.directly.luckyboard">
 
     <application
+        android:name=".app.DirectlyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".component.activity.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,10 +18,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.user.LoginActivity" />
-        <activity android:name=".dagger.HttpActivity" />
-        <activity android:name=".dagger.FactoryActivity" />
+        <activity android:name=".component.activity.login.LoginActivity" />
     </application>
-
 
 </manifest>

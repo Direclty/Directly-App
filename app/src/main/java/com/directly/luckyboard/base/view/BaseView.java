@@ -29,4 +29,9 @@ public interface BaseView {
      */
     void closeDialog();
 
+    /**
+     * Reload
+     */
+    void reload();
+
 }

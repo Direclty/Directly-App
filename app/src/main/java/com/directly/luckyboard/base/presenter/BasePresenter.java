@@ -1,6 +1,9 @@
 package com.directly.luckyboard.base.presenter;
 
 import com.directly.luckyboard.base.view.BaseView;
+import com.directly.luckyboard.core.DataManager;
+
+import javax.inject.Inject;
 
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
@@ -12,13 +15,19 @@ import io.reactivex.disposables.Disposable;
 
 public class BasePresenter<T extends BaseView> implements AbstractPresenter<T> {
 
-    private  T mView;
+    protected T mView;
+    protected DataManager manager;
     private CompositeDisposable compositeDisposable;
+
+    public BasePresenter(DataManager dataManager) {
+        this.manager = dataManager;
+    }
 
     @Override
     public void attachView(T view) {
-        this.mView=view;
+        this.mView = view;
     }
+
 
     @Override
     public void detachView() {
@@ -34,6 +43,7 @@ public class BasePresenter<T extends BaseView> implements AbstractPresenter<T> {
     }
 
     protected void addSubscribe(Disposable disposable) {
+
         if (compositeDisposable == null) {
             compositeDisposable = new CompositeDisposable();
         }
