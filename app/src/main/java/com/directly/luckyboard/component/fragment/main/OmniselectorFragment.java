@@ -12,6 +12,7 @@ public class OmniselectorFragment extends AbstractRootFragment<OmniselectorPrese
 
 
     public static OmniselectorFragment getInstance(String str1, String str2) {
+
         return new OmniselectorFragment();
     }
 

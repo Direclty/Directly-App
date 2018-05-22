@@ -11,16 +11,22 @@ import com.directly.luckyboard.base.fragment.AbstractRootFragment;
 public class MainPagerFragment extends AbstractRootFragment<MainPagerPresenter> implements MainPagerContract.View {
 
 
+    public static MainPagerFragment getInstance(boolean param1, String param2) {
+        MainPagerFragment fragment = new MainPagerFragment();
+        return fragment;
+    }
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_main_pager;
     }
 
+    @Override
+    protected void initEventAndData() {
 
-    public static MainPagerFragment getInstance(boolean param1, String param2) {
+        super.initEventAndData();
 
-        MainPagerFragment fragment = new MainPagerFragment();
-        return fragment;
+        mPresenter.loadNewListData();
     }
 
     @Override

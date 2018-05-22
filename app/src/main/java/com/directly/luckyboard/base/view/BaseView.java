@@ -18,11 +18,15 @@ public interface BaseView {
 
     /**
      * error show
-     *
-     * @param isShowT    is show toast
-     * @param isShowView is show error layout
      */
-    void showErrorView(boolean isShowT, boolean isShowView);
+    void showErrorView();
+
+    /**
+     * show error message
+     *
+     * @param message content
+     */
+    void showErrorMsg(String message);
 
     /**
      * loading dialog close

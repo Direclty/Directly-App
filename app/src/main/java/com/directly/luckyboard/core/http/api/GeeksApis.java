@@ -1,7 +1,8 @@
 package com.directly.luckyboard.core.http.api;
 
+import com.directly.luckyboard.component.bean.BannerData;
 import com.directly.luckyboard.core.bean.BaseResponse;
-import com.directly.luckyboard.core.bean.news.NewsData;
+import com.directly.luckyboard.component.bean.NewsData;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -24,4 +25,14 @@ public interface GeeksApis {
      */
     @GET("article/list/{num}/json")
     Observable<BaseResponse<NewsData>> getNewsList(@Path("num") int num);
+
+    /**
+     * 获取新闻列表
+     *
+     * @return 列表
+     */
+    @GET("article/list/{num}/json")
+    Observable<BaseResponse<BannerData>> getBanner();
+
+
 }

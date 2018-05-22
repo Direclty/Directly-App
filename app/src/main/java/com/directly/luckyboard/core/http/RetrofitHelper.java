@@ -1,7 +1,8 @@
 package com.directly.luckyboard.core.http;
 
+import com.directly.luckyboard.component.bean.BannerData;
 import com.directly.luckyboard.core.bean.BaseResponse;
-import com.directly.luckyboard.core.bean.news.NewsData;
+import com.directly.luckyboard.component.bean.NewsData;
 import com.directly.luckyboard.core.http.api.GeeksApis;
 
 import javax.inject.Inject;
@@ -25,5 +26,10 @@ public class RetrofitHelper implements HttpHelper {
     @Override
     public Observable<BaseResponse<NewsData>> getNewsList(int params) {
         return mGeeksApis.getNewsList(params);
+    }
+
+    @Override
+    public Observable<BaseResponse<BannerData>> getBannerList() {
+        return mGeeksApis.getBanner();
     }
 }

@@ -1,7 +1,8 @@
 package com.directly.luckyboard.core;
 
+import com.directly.luckyboard.component.bean.BannerData;
 import com.directly.luckyboard.core.bean.BaseResponse;
-import com.directly.luckyboard.core.bean.news.NewsData;
+import com.directly.luckyboard.component.bean.NewsData;
 import com.directly.luckyboard.core.bean.superdata.HistoryData;
 import com.directly.luckyboard.core.db.DbHelper;
 import com.directly.luckyboard.core.http.HttpHelper;
@@ -39,6 +40,11 @@ public class DataManager implements HttpHelper, DbHelper, PreferenceHelper {
         return mHttpHelper.getNewsList(params);
     }
 
+    @Override
+    public Observable<BaseResponse<BannerData>> getBannerList() {
+        return mHttpHelper.getBannerList();
+    }
+
     /**
      * DbHelper
      *
@@ -67,32 +73,32 @@ public class DataManager implements HttpHelper, DbHelper, PreferenceHelper {
      */
     @Override
     public void setLoginAccount(String account) {
-
+        mPreferenceHelper.setLoginAccount(account);
     }
 
     @Override
     public void setLoginPassword(String password) {
-
+        mPreferenceHelper.setLoginPassword(password);
     }
 
     @Override
     public String getLoginAccount() {
-        return null;
+        return mPreferenceHelper.getLoginAccount();
     }
 
     @Override
     public String getLoginPassword() {
-        return null;
+        return mPreferenceHelper.getLoginPassword();
     }
 
     @Override
     public void setLoginStatus(boolean isLogin) {
-
+        mPreferenceHelper.setLoginStatus(isLogin);
     }
 
     @Override
     public boolean getLoginStatus() {
-        return false;
+        return mPreferenceHelper.getLoginStatus();
     }
 
     @Override

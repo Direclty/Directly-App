@@ -1,4 +1,4 @@
-package com.directly.luckyboard.core.bean.news;
+package com.directly.luckyboard.component.bean;
 
 /**
  * @author Xiao-Long Zhou

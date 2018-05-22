@@ -1,7 +1,8 @@
 package com.directly.luckyboard.core.http;
 
+import com.directly.luckyboard.component.bean.BannerData;
 import com.directly.luckyboard.core.bean.BaseResponse;
-import com.directly.luckyboard.core.bean.news.NewsData;
+import com.directly.luckyboard.component.bean.NewsData;
 
 import io.reactivex.Observable;
 
@@ -15,8 +16,15 @@ public interface HttpHelper {
     /**
      * 获取首页信息
      *
-     * @param params 参数
+     * @param params pages
      * @return New Message
      */
     Observable<BaseResponse<NewsData>> getNewsList(int params);
+
+    /**
+     * banner message
+     *
+     * @return banner's url
+     */
+    Observable<BaseResponse<BannerData>> getBannerList();
 }

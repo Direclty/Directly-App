@@ -27,7 +27,6 @@ public class Constants {
     static final String DB_NAME = "directly_android.db";
 
 
-
     /**
      * Shared Preference key
      */
@@ -71,4 +70,6 @@ public class Constants {
             Color.parseColor("#F6BC7E")
     };
 
+    public static final String NEWS_DATA = "new_data";
+    public static final String BANNER_DATA = "banner_data";
 }

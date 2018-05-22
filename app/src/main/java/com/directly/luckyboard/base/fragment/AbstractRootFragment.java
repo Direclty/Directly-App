@@ -34,6 +34,7 @@ public abstract class AbstractRootFragment<T extends BasePresenter> extends Base
         }
 
         mNormalView = getView().findViewById(R.id.normal_view);
+
         if (mNormalView == null) {
             throw new IllegalStateException(
                     "The subclass of RootActivity must contain a View named 'mNormalView'.");
@@ -68,29 +69,31 @@ public abstract class AbstractRootFragment<T extends BasePresenter> extends Base
         super.onDestroyView();
     }
 
-//    @Override
-//    public void showLoading() {
-//        if (currentState == LOADING_STATE) {
-//            return;
-//        }
-//        hideCurrentView();
-//        currentState = LOADING_STATE;
-//        mLoadingView.setVisibility(View.VISIBLE);
-//        mLoadingAnimation.setAnimation("loading_bus.json");
-//        mLoadingAnimation.loop(true);
-//        mLoadingAnimation.playAnimation();
-//    }
-//
-//    @Override
-//    public void showError() {
-//        if (currentState == ERROR_STATE) {
-//            return;
-//        }
-//        hideCurrentView();
-//        currentState = ERROR_STATE;
-//        mErrorView.setVisibility(View.VISIBLE);
-//    }
-//
+    @Override
+    public void showDialog() {
+        if (currentState == LOADING_STATE) {
+            return;
+        }
+        hideCurrentView();
+        currentState = LOADING_STATE;
+        mLoadingView.setVisibility(View.VISIBLE);
+        mLoadingAnimation.setAnimation("loading_bus.json");
+        mLoadingAnimation.loop(true);
+        mLoadingAnimation.playAnimation();
+    }
+
+    @Override
+    public void showErrorView(boolean isShowT, boolean isShowView) {
+        if (currentState == ERROR_STATE) {
+            return;
+        }
+        hideCurrentView();
+        currentState = ERROR_STATE;
+        mErrorView.setVisibility(View.VISIBLE);
+    }
+
+
+
 //    @Override
 //    public void showNormal() {
 //        if (currentState == NORMAL_STATE) {
@@ -100,23 +103,23 @@ public abstract class AbstractRootFragment<T extends BasePresenter> extends Base
 //        currentState = NORMAL_STATE;
 //        mNormalView.setVisibility(View.VISIBLE);
 //    }
-//
-//    private void hideCurrentView() {
-//        switch (currentState) {
-//            case NORMAL_STATE:
-//                if (mNormalView == null) {
-//                    return;
-//                }
-//                mNormalView.setVisibility(View.INVISIBLE);
-//                break;
-//            case LOADING_STATE:
-//                mLoadingAnimation.cancelAnimation();
-//                mLoadingView.setVisibility(View.GONE);
-//                break;
-//            case ERROR_STATE:
-//                mErrorView.setVisibility(View.GONE);
-//            default:
-//                break;
-//        }
-//    }
+
+    private void hideCurrentView() {
+        switch (currentState) {
+            case NORMAL_STATE:
+                if (mNormalView == null) {
+                    return;
+                }
+                mNormalView.setVisibility(View.INVISIBLE);
+                break;
+            case LOADING_STATE:
+                mLoadingAnimation.cancelAnimation();
+                mLoadingView.setVisibility(View.GONE);
+                break;
+            case ERROR_STATE:
+                mErrorView.setVisibility(View.GONE);
+            default:
+                break;
+        }
+    }
 }
