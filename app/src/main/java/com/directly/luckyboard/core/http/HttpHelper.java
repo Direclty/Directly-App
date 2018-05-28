@@ -4,8 +4,9 @@ import com.directly.luckyboard.component.bean.BannerData;
 import com.directly.luckyboard.core.bean.BaseResponse;
 import com.directly.luckyboard.component.bean.NewsData;
 
-import io.reactivex.Observable;
+import java.util.List;
 
+import io.reactivex.Observable;
 
 /**
  * @author Xiao-Long Zhou
@@ -26,5 +27,5 @@ public interface HttpHelper {
      *
      * @return banner's url
      */
-    Observable<BaseResponse<BannerData>> getBannerList();
+    Observable<BaseResponse<List<BannerData>>> getBannerList();
 }

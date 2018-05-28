@@ -2,6 +2,9 @@ package com.directly.luckyboard.component.fragment.main;
 
 import com.directly.luckyboard.base.presenter.AbstractPresenter;
 import com.directly.luckyboard.base.view.BaseView;
+import com.directly.luckyboard.component.bean.BannerData;
+import com.directly.luckyboard.component.bean.NewsData;
+import com.directly.luckyboard.core.bean.BaseResponse;
 
 import java.util.List;
 
@@ -10,14 +13,23 @@ import java.util.List;
  * @date 2018/5/17 14:16
  */
 
-public class MainPagerContract {
+class MainPagerContract {
 
     interface View extends BaseView {
 
         /**
          * show news list message
+         *
+         * @param data 首页数据
          */
-        void showNewList();
+        void showNewList(BaseResponse<NewsData> data);
+
+        /**
+         * 展示轮播图
+         *
+         * @param data banner数据
+         */
+        void showBanner(BaseResponse<List<BannerData>> data);
 
     }
 
@@ -26,7 +38,7 @@ public class MainPagerContract {
         /**
          * Load main pager data
          */
-        void loadNewListData();
+        void loadNewListDataAndBanner();
 
         /**
          * Get banner data

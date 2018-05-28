@@ -167,9 +167,16 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     }
 
     @Override
-    public void showErrorView(boolean isShowT, boolean isShowView) {
+    public void showErrorView() {
 
     }
+
+    @Override
+    public void showErrorMsg(String message) {
+
+    }
+
+
 
     @Override
     public void closeDialog() {

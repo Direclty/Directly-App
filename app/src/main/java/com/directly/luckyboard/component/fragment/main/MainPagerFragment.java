@@ -1,7 +1,25 @@
 package com.directly.luckyboard.component.fragment.main;
 
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
 import com.directly.luckyboard.R;
 import com.directly.luckyboard.base.fragment.AbstractRootFragment;
+import com.directly.luckyboard.component.bean.BannerData;
+import com.directly.luckyboard.component.bean.NewsData;
+import com.directly.luckyboard.component.fragment.adapter.MainPageRvAdapter;
+import com.directly.luckyboard.core.bean.BaseResponse;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * @author Xiao-Long Zhou
@@ -11,8 +29,18 @@ import com.directly.luckyboard.base.fragment.AbstractRootFragment;
 public class MainPagerFragment extends AbstractRootFragment<MainPagerPresenter> implements MainPagerContract.View {
 
 
+    @BindView(R.id.main_pager_recycler_view)
+    RecyclerView mainPagerRecyclerView;
+
+    @BindView(R.id.normal_view)
+    SmartRefreshLayout normalView;
+
+    MainPageRvAdapter mAdapter;
+
     public static MainPagerFragment getInstance(boolean param1, String param2) {
+
         MainPagerFragment fragment = new MainPagerFragment();
+
         return fragment;
     }
 
@@ -23,10 +51,13 @@ public class MainPagerFragment extends AbstractRootFragment<MainPagerPresenter> 
 
     @Override
     protected void initEventAndData() {
-
         super.initEventAndData();
 
-        mPresenter.loadNewListData();
+        mPresenter.loadNewListDataAndBanner();
+
+        mAdapter = new MainPageRvAdapter(R.layout.layout_item_host, getContext());
+        mainPagerRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        mainPagerRecyclerView.setAdapter(mAdapter);
     }
 
     @Override
@@ -40,12 +71,36 @@ public class MainPagerFragment extends AbstractRootFragment<MainPagerPresenter> 
     }
 
     @Override
-    public void showErrorView(boolean isShowT, boolean isShowView) {
+    public void closeDialog() {
+
+    }
+
+    /**
+     * @param data 首页数据
+     */
+    @Override
+    public void showNewList(BaseResponse<NewsData> data) {
+
+        List<NewsData.DatasBean> mData = data.getData().getDatas();
+
+        mAdapter.addData(mData);
+    }
+
+    /**
+     * @param data banner数据
+     */
+    @Override
+    public void showBanner(BaseResponse<List<BannerData>> data) {
 
     }
 
     @Override
-    public void closeDialog() {
+    public void showErrorView() {
+
+    }
+
+    @Override
+    public void showErrorMsg(String message) {
 
     }
 
@@ -55,12 +110,8 @@ public class MainPagerFragment extends AbstractRootFragment<MainPagerPresenter> 
     }
 
     @Override
-    public void showNewList() {
-
-    }
-
-    @Override
     protected void initInject() {
         getFragmentComponent().inject(this);
     }
+
 }

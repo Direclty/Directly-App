@@ -6,6 +6,10 @@ package com.directly.luckyboard.core.bean;
  */
 
 public class BaseResponse<T> {
+
+    public static final int SUCCESS = 0;
+
+    public static final int FAIL = 1;
     /**
      * 状态码
      */

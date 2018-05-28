@@ -41,7 +41,7 @@ public class DataManager implements HttpHelper, DbHelper, PreferenceHelper {
     }
 
     @Override
-    public Observable<BaseResponse<BannerData>> getBannerList() {
+    public Observable<BaseResponse<List<BannerData>>> getBannerList() {
         return mHttpHelper.getBannerList();
     }
 

@@ -83,7 +83,7 @@ public abstract class AbstractRootFragment<T extends BasePresenter> extends Base
     }
 
     @Override
-    public void showErrorView(boolean isShowT, boolean isShowView) {
+    public void showErrorView() {
         if (currentState == ERROR_STATE) {
             return;
         }

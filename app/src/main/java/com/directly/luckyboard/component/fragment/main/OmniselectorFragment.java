@@ -32,9 +32,15 @@ public class OmniselectorFragment extends AbstractRootFragment<OmniselectorPrese
     }
 
     @Override
-    public void showErrorView(boolean isShowT, boolean isShowView) {
+    public void showErrorView() {
 
     }
+
+    @Override
+    public void showErrorMsg(String message) {
+
+    }
+
 
     @Override
     public void closeDialog() {

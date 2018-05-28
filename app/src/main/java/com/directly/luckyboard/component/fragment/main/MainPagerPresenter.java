@@ -6,14 +6,17 @@ import com.directly.luckyboard.component.bean.BannerData;
 import com.directly.luckyboard.core.DataManager;
 import com.directly.luckyboard.core.bean.BaseResponse;
 import com.directly.luckyboard.component.bean.NewsData;
+import com.directly.luckyboard.utils.CommonUtils;
 import com.directly.luckyboard.utils.RxUtils;
 import com.directly.luckyboard.widget.BaseObserver;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
+import io.reactivex.functions.BiFunction;
 
 
 /**
@@ -34,15 +37,15 @@ public class MainPagerPresenter extends BasePresenter<MainPagerContract.View> im
     }
 
     @Override
-    public void loadNewListData() {
+    public void loadNewListDataAndBanner() {
 
         String loginAccount = mDataManager.getLoginAccount();
         String loginPassword = mDataManager.getLoginPassword();
         boolean loginStatus = mDataManager.getLoginStatus();
 
-
         Observable<BaseResponse<NewsData>> newsList = mDataManager.getNewsList(0);
-        Observable<BaseResponse<BannerData>> bannerList = mDataManager.getBannerList();
+
+        Observable<BaseResponse<List<BannerData>>> bannerList = mDataManager.getBannerList();
 
         addSubscribe(Observable.zip(newsList, bannerList, (newsDataBaseResponse, bannerDataBaseResponse) -> {
             HashMap<String, Object> map = new HashMap<>(3);
@@ -55,6 +58,15 @@ public class MainPagerPresenter extends BasePresenter<MainPagerContract.View> im
                     @Override
                     public void onNext(HashMap<String, Object> map) {
 
+                        BaseResponse<NewsData> newsBaseResponse = CommonUtils.cast(map.get(Constants.NEWS_DATA));
+
+                        if (newsBaseResponse.getErrorCode() == BaseResponse.SUCCESS) {
+
+                        }
+
+                        mView.showNewList(CommonUtils.cast(map.get(Constants.NEWS_DATA)));
+
+                        mView.showBanner(CommonUtils.cast(map.get(Constants.BANNER_DATA)));
                     }
 
                     @Override
@@ -69,7 +81,6 @@ public class MainPagerPresenter extends BasePresenter<MainPagerContract.View> im
                         mView.closeDialog();
                     }
                 }));
-
     }
 
     @Override
