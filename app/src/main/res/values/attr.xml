@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    //自定义View的属性
+    <declare-styleable name="QqHealthView">
+        <attr name="titleColor" format="color" />
+        <attr name="lineColor" format="color" />
+    </declare-styleable>
+
+    //自定义属性名,定义公共属性
+    <attr name="titleSize" format="dimension" />
+    <attr name="titleText" format="string" />
+    <attr name="outCircleColor" format="color" />
+    <attr name="inCircleColor" format="color" />
+
+</resources>
