@@ -22,6 +22,15 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    //add BaiDu SDK 2019-08-22 begin
+    sourceSets{
+        main{
+            jniLibs.srcDir 'libs'
+            jni.srcDirs = []
+        }
+    }
+    //add BaiDu SDK 2019-08-22 end
 }
 
 dependencies {

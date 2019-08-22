@@ -12,7 +12,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-
+//add BaiDu SDK 2019-08-22 begin
+import com.baidu.location.BDAbstractLocationListener;
+import com.baidu.location.BDLocation;
+import com.baidu.location.LocationClient;
+//add BaiDu SDK 2019-08-22 end
 import com.directly.luckyboard.R;
 import com.directly.luckyboard.app.Constants;
 import com.directly.luckyboard.base.activity.BaseActivity;
@@ -82,6 +86,17 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             init();
             switchFragment(Constants.TYPE_SETTING);
         }
+        //add BaiDu SDK 2019-08-22 begin
+        LocationClient locationClient = new LocationClient(getApplicationContext());
+        locationClient.registerLocationListener(new BDAbstractLocationListener() {
+            @Override
+            public void onReceiveLocation(BDLocation bdLocation) {
+                double altitude = bdLocation.getAltitude();
+                double latitude = bdLocation.getLatitude();
+                android.util.Log.d("zxl","altitude = " + altitude + " latitude = " + latitude);
+            }
+        });
+        //add BaiDu SDK 2019-08-22 end
     }
 
     /**
