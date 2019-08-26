@@ -10,10 +10,18 @@ public class BaseResponse<T> {
     public static final int SUCCESS = 0;
 
     public static final int FAIL = 1;
+    //zhouxiaolong modify for add network response state 2019-08-26 begin
+    /**
+     * 返回是否成功
+     */
+    public String success;
+    //zhouxiaolong modify for add network response state 2019-08-26 end
+
     /**
      * 状态码
      */
     public int errorCode;
+
     /**
      * 返回码
      */
@@ -47,4 +55,14 @@ public class BaseResponse<T> {
     public void setData(T data) {
         this.data = data;
     }
+
+    //zhouxiaolong modify for add network response state 2019-08-26 begin
+    public String getSuccess() {
+        return success;
+    }
+
+    public void setSuccess(String success) {
+        this.success = success;
+    }
+    //zhouxiaolong modify for add network response state 2019-08-26 end
 }

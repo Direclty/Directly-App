@@ -1,5 +1,6 @@
 package com.directly.luckyboard.component.fragment.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +13,7 @@ import com.directly.luckyboard.base.fragment.AbstractRootFragment;
 import com.directly.luckyboard.component.bean.BannerData;
 import com.directly.luckyboard.component.bean.NewsData;
 import com.directly.luckyboard.component.fragment.adapter.MainPageRvAdapter;
+import com.directly.luckyboard.component.fragment.main.mainchild.LocationActivity;
 import com.directly.luckyboard.core.bean.BaseResponse;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
@@ -84,6 +86,15 @@ public class MainPagerFragment extends AbstractRootFragment<MainPagerPresenter> 
         List<NewsData.DatasBean> mData = data.getData().getDatas();
 
         mAdapter.addData(mData);
+       //zhouxiaolong modify for add click listener 2019-08-26 begin
+        mAdapter.setOnItemClickListener(new MainPageRvAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View v, int position) {
+                Intent intent = new Intent(getContext(), LocationActivity.class);
+                startActivity(intent);
+            }
+        });
+        //zhouxiaolong modify for add click listener 2019-08-26 end
     }
 
     /**

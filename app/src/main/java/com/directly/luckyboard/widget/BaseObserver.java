@@ -21,6 +21,9 @@ public abstract class BaseObserver<T> extends ResourceObserver<T> {
     private BaseView mView;
     private String mErrorMsg;
     private boolean isShowError = true;
+    //zhouxiaolong modify for add network response state 2019-08-26 begin
+    private String success;
+    //zhouxiaolong modify for add network response state 2019-08-26 end
 
     protected BaseObserver(BaseView view){
         this.mView = view;
@@ -41,6 +44,15 @@ public abstract class BaseObserver<T> extends ResourceObserver<T> {
         this.mErrorMsg = errorMsg;
         this.isShowError = isShowError;
     }
+
+    //zhouxiaolong modify for add network response state 2019-08-26 begin
+    protected BaseObserver(BaseView view,String success, String errorMsg, boolean isShowError){
+        this.mView = view;
+        this.mErrorMsg = errorMsg;
+        this.isShowError = isShowError;
+        this.success = success;
+    }
+    //zhouxiaolong modify for add network response state 2019-08-26 end
 
     @Override
     public void onComplete() {
