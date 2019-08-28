@@ -1,6 +1,7 @@
 package com.directly.luckyboard.core.http;
 
 import com.directly.luckyboard.component.bean.BannerData;
+import com.directly.luckyboard.component.bean.LocationData;
 import com.directly.luckyboard.core.bean.BaseResponse;
 import com.directly.luckyboard.component.bean.NewsData;
 
@@ -28,4 +29,10 @@ public interface HttpHelper {
      * @return banner's url
      */
     Observable<BaseResponse<List<BannerData>>> getBannerList();
+
+    /**
+     *location message
+     * @return location
+     */
+    Observable<BaseResponse<List<LocationData>>> getLocationMessage(String content, String sender, String state, String readFlag, String actionTime);
 }

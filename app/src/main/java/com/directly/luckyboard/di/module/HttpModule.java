@@ -43,7 +43,7 @@ public class HttpModule {
     @Provides
     @DirectlyAndroidUrl
     Retrofit provideGeeksRetrofit(Retrofit.Builder builder, OkHttpClient client) {
-        return createRetrofit(builder, client, GeeksApis.HOST);
+        return createRetrofit(builder, client, GeeksApis.HOST_NEW);
     }
 
     @Singleton

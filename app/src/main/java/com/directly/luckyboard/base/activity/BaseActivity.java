@@ -19,7 +19,7 @@ import javax.inject.Inject;
 public abstract class BaseActivity<T extends AbstractPresenter> extends AbstractSimpleActivity implements BaseView {
 
     @Inject
-    protected T mPresenter;
+    public T mPresenter;
 
     @Override
     protected void onDestroy() {

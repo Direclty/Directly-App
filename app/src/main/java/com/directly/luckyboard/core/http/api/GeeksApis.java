@@ -1,13 +1,16 @@
 package com.directly.luckyboard.core.http.api;
 
 import com.directly.luckyboard.component.bean.BannerData;
+import com.directly.luckyboard.component.bean.LocationData;
 import com.directly.luckyboard.core.bean.BaseResponse;
 import com.directly.luckyboard.component.bean.NewsData;
 
 import java.util.List;
 
 import io.reactivex.Observable;
+import retrofit2.http.Field;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 /**
@@ -18,6 +21,8 @@ import retrofit2.http.Path;
 public interface GeeksApis {
 
     String HOST = "http://www.wanandroid.com/";
+
+    String HOST_NEW = "http://120.79.32.45:8093/";
 
     /**
      * 获取新闻列表
@@ -36,5 +41,10 @@ public interface GeeksApis {
     @GET("banner/json")
     Observable<BaseResponse<List<BannerData>>> getBanner();
 
-
+    @POST("message")
+    Observable<BaseResponse<List<LocationData>>> getLocation(@Field("content") String content,
+                                                 @Field("sender") String sender,
+                                                 @Field("state") String state,
+                                                 @Field("readFlag") String readFlag,
+                                                 @Field("actionTime") String actionTime);
 }

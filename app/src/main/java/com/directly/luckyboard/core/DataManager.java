@@ -1,6 +1,7 @@
 package com.directly.luckyboard.core;
 
 import com.directly.luckyboard.component.bean.BannerData;
+import com.directly.luckyboard.component.bean.LocationData;
 import com.directly.luckyboard.core.bean.BaseResponse;
 import com.directly.luckyboard.component.bean.NewsData;
 import com.directly.luckyboard.core.bean.superdata.HistoryData;
@@ -40,9 +41,19 @@ public class DataManager implements HttpHelper, DbHelper, PreferenceHelper {
         return mHttpHelper.getNewsList(params);
     }
 
+    /**
+     * data
+     *
+     * @return banner image
+     */
     @Override
     public Observable<BaseResponse<List<BannerData>>> getBannerList() {
         return mHttpHelper.getBannerList();
+    }
+
+    @Override
+    public Observable<BaseResponse<List<LocationData>>> getLocationMessage(String content, String sender, String state, String readFlag, String actionTime) {
+        return mHttpHelper.getLocationMessage( content, sender, state, readFlag, actionTime);
     }
 
     /**
