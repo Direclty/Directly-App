@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.directly.luckyboard.R;
 import com.directly.luckyboard.base.fragment.AbstractRootFragment;
@@ -21,6 +22,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
@@ -38,6 +40,15 @@ public class MainPagerFragment extends AbstractRootFragment<MainPagerPresenter> 
     SmartRefreshLayout normalView;
 
     MainPageRvAdapter mAdapter;
+    @BindView(R.id.bt_test)
+    Button btTest;
+    Unbinder unbinder;
+
+    @OnClick(R.id.bt_test)
+    public void testMessage(){
+        Intent intent = new Intent(getContext(), LocationActivity.class);
+        startActivity(intent);
+    }
 
     public static MainPagerFragment getInstance(boolean param1, String param2) {
 
@@ -60,9 +71,6 @@ public class MainPagerFragment extends AbstractRootFragment<MainPagerPresenter> 
         mAdapter = new MainPageRvAdapter(R.layout.layout_item_host, getContext());
         mainPagerRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mainPagerRecyclerView.setAdapter(mAdapter);
-
-        Intent intent = new Intent(getContext(), LocationActivity.class);
-        startActivity(intent);
     }
 
     @Override
@@ -89,7 +97,7 @@ public class MainPagerFragment extends AbstractRootFragment<MainPagerPresenter> 
         List<NewsData.DatasBean> mData = data.getData().getDatas();
 
         mAdapter.addData(mData);
-       //zhouxiaolong modify for add click listener 2019-08-26 begin
+        //zhouxiaolong modify for add click listener 2019-08-26 begin
         mAdapter.setOnItemClickListener(new MainPageRvAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View v, int position) {
@@ -128,4 +136,17 @@ public class MainPagerFragment extends AbstractRootFragment<MainPagerPresenter> 
         getFragmentComponent().inject(this);
     }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        unbinder = ButterKnife.bind(this, rootView);
+        return rootView;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
 }

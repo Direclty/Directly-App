@@ -39,7 +39,6 @@ public class CollectFragment extends AbstractRootFragment<CollectPresenter> impl
 
     }
 
-
     @Override
     public void closeDialog() {
 

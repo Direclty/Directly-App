@@ -1,7 +1,6 @@
 package com.directly.luckyboard.component.fragment.main.mainchild;
 
 import android.os.Bundle;
-import android.support.v4.widget.Space;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -9,9 +8,6 @@ import android.widget.TextView;
 import com.airbnb.lottie.LottieAnimationView;
 import com.directly.luckyboard.R;
 import com.directly.luckyboard.base.activity.BaseActivity;
-import com.directly.luckyboard.component.bean.LocationData;
-
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -7,8 +7,6 @@ import com.directly.luckyboard.core.bean.BaseResponse;
 import com.directly.luckyboard.utils.RxUtils;
 import com.directly.luckyboard.widget.BaseObserver;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
