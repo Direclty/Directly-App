@@ -60,6 +60,9 @@ public class MainPagerFragment extends AbstractRootFragment<MainPagerPresenter> 
         mAdapter = new MainPageRvAdapter(R.layout.layout_item_host, getContext());
         mainPagerRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mainPagerRecyclerView.setAdapter(mAdapter);
+
+        Intent intent = new Intent(getContext(), LocationActivity.class);
+        startActivity(intent);
     }
 
     @Override

@@ -18,7 +18,7 @@ import io.reactivex.Observable;
  * @date 2019-08-26
  */
 public class LocationPresenter extends BasePresenter<LocationContract.View> implements
-        LocationContract.Presenter, LocationContract.View {
+        LocationContract.Presenter {
 
     private DataManager mDataManager;
 
@@ -29,53 +29,47 @@ public class LocationPresenter extends BasePresenter<LocationContract.View> impl
     }
 
     @Override
-    public void start() {
-
-    }
-
-    @Override
-    public void showDialog() {
-
-    }
-
-    @Override
-    public void showErrorView() {
-
-    }
-
-    @Override
-    public void showErrorMsg(String message) {
-
-    }
-
-    @Override
-    public void closeDialog() {
-
-    }
-
-    @Override
-    public void reload() {
-
-    }
-
-    @Override
-    public void loadLocationView() {
-
-    }
-
-    @Override
     public void loadLocationMessage() {
-
         Observable<BaseResponse<List<LocationData>>> locationMessage
-                = mDataManager.getLocationMessage("测试","13399858383","0","1","1573441871000");
-        addSubscribe(locationMessage.subscribeWith(new BaseObserver<BaseResponse<List<LocationData>>>(mView) {
+                = mDataManager.getLocationMessage("测试", "13399858383",
+                "0","1", "1573441871000");
+        addSubscribe(locationMessage
+                .compose(RxUtils.rxSchedulerHelper())
+                .subscribeWith(new BaseObserver<BaseResponse<List<LocationData>>>
+                        (mView,"",true) {
             @Override
             public void onNext(BaseResponse<List<LocationData>> listBaseResponse) {
                 if("true".equals(listBaseResponse.success)){
-                    android.util.Log.d("zxl","数据是多少 = " + listBaseResponse.getData().size());
+                    if(listBaseResponse.getData() != null){
+                        android.util.Log.d("zxl","数据是多少 = " + listBaseResponse
+                                .getData().size());
+                    }
+                    android.util.Log.d("zxl","请求成功 数据为空 = ");
                     mView.loadLocationView();
                 }
+            }
+        }));
+    }
 
+    @Override
+    public void upLocationMessage() {
+        Observable<BaseResponse<LocationData>> upLocationMessage = mDataManager
+                .upLocationMessage("29.4525160000",
+                        "106.5214370000", "1",
+                        "1573441771000", "2312131",
+                        "石油路122");
+        addSubscribe(upLocationMessage.compose(RxUtils.rxSchedulerHelper())
+                .subscribeWith(new BaseObserver<BaseResponse<LocationData>>(mView) {
+            @Override
+            public void onNext(BaseResponse<LocationData> locationDataBaseResponse) {
+                if("true".equals(locationDataBaseResponse.success)){
+                    if(locationDataBaseResponse.getData() != null){
+                        android.util.Log.d("zxl","上传地理信息 = "
+                                + locationDataBaseResponse.getData().toString());
+                    }
+                    android.util.Log.d("zxl","请求成功 上传地理信息成功 = ");
+                    mView.upLocationView();
+                }
             }
         }));
     }

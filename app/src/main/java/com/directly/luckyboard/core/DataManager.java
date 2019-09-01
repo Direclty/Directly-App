@@ -56,6 +56,11 @@ public class DataManager implements HttpHelper, DbHelper, PreferenceHelper {
         return mHttpHelper.getLocationMessage( content, sender, state, readFlag, actionTime);
     }
 
+    @Override
+    public Observable<BaseResponse<LocationData>> upLocationMessage(String latitude, String longitude, String locType, String actionTime, String imei, String address) {
+        return mHttpHelper.upLocationMessage(latitude,longitude,locType,actionTime,imei,address);
+    }
+
     /**
      * DbHelper
      *

@@ -23,6 +23,7 @@ public class LocationActivity extends BaseActivity<LocationPresenter> implements
     @Override
     protected void initEventAndData() {
         mPresenter.loadLocationMessage();
+        mPresenter.upLocationMessage();
     }
 
     @Override
@@ -57,6 +58,11 @@ public class LocationActivity extends BaseActivity<LocationPresenter> implements
 
     @Override
     public void loadLocationView() {
+
+    }
+
+    @Override
+    public void upLocationView() {
 
     }
 }

@@ -9,6 +9,11 @@ class LocationContract {
          * 数据请求完毕之后加载布局
          */
         void loadLocationView();
+
+        /**
+         * 上传状态
+         */
+        void upLocationView();
     }
     
     interface Presenter extends AbstractPresenter<View> {
@@ -16,5 +21,10 @@ class LocationContract {
          * 加载定位数据请求
          */
         void loadLocationMessage();
+
+        /**
+         * 上传位置信息
+         */
+        void upLocationMessage();
     }
 }

@@ -35,4 +35,10 @@ public interface HttpHelper {
      * @return location
      */
     Observable<BaseResponse<List<LocationData>>> getLocationMessage(String content, String sender, String state, String readFlag, String actionTime);
+
+    /**
+     *上传位置信息
+     * @return  data message
+     */
+    Observable<BaseResponse<LocationData>> upLocationMessage(String latitude, String longitude, String locType, String actionTime, String imei, String address);
 }

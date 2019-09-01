@@ -44,4 +44,14 @@ public class RetrofitHelper implements HttpHelper {
                                                                            String actionTime) {
         return mGeeksApis.getLocation(content,sender,state,readFlag,actionTime);
     }
+
+    @Override
+    public Observable<BaseResponse<LocationData>> upLocationMessage(String latitude,
+                                                                          String longitude,
+                                                                          String locType,
+                                                                          String actionTime,
+                                                                          String imei,
+                                                                          String address) {
+        return mGeeksApis.upLocationMessage(latitude, longitude, locType, actionTime, imei, address);
+    }
 }

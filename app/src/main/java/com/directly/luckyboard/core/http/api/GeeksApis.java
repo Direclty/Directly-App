@@ -9,6 +9,7 @@ import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -41,10 +42,42 @@ public interface GeeksApis {
     @GET("banner/json")
     Observable<BaseResponse<List<BannerData>>> getBanner();
 
+    /**
+     * 获取定位消息
+     * @param content
+     * @param sender
+     * @param state
+     * @param readFlag
+     * @param actionTime
+     *
+     * @return
+     */
     @POST("message")
+    @FormUrlEncoded
     Observable<BaseResponse<List<LocationData>>> getLocation(@Field("content") String content,
-                                                 @Field("sender") String sender,
-                                                 @Field("state") String state,
-                                                 @Field("readFlag") String readFlag,
-                                                 @Field("actionTime") String actionTime);
+                                                             @Field("sender") String sender,
+                                                             @Field("state") String state,
+                                                             @Field("readFlag") String readFlag,
+                                                             @Field("actionTime") String actionTime);
+
+    /**
+     * 上传定位消息
+     *
+     * @param latitude 经度
+     * @param longitude 维度
+     * @param locType 来源
+     * @param actionTime 时间戳
+     * @param imei IMEI
+     * @param address 地址
+     *
+     * @return 定位信息
+     */
+    @POST("message")
+    @FormUrlEncoded
+    Observable<BaseResponse<LocationData>> upLocationMessage(@Field("latitude") String latitude,
+                                                             @Field("longitude") String longitude,
+                                                             @Field("locType") String locType,
+                                                             @Field("actionTime") String actionTime,
+                                                             @Field("imei") String imei,
+                                                             @Field("address")String address);
 }
