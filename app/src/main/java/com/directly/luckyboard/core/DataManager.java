@@ -52,7 +52,7 @@ public class DataManager implements HttpHelper, DbHelper, PreferenceHelper {
     }
 
     @Override
-    public Observable<BaseResponse<List<LocationData>>> getLocationMessage(String content, String sender, String state, String readFlag, String actionTime) {
+    public Observable<BaseResponse<LocationData>> getLocationMessage(String content, String sender, String state, String readFlag, String actionTime) {
         return mHttpHelper.getLocationMessage( content, sender, state, readFlag, actionTime);
     }
 

@@ -7,13 +7,15 @@ class LocationContract {
     interface View extends BaseView{
         /**
          * 数据请求完毕之后加载布局
+         * @param data
          */
-        void loadLocationView();
+        void loadLocationView(String data);
 
         /**
          * 上传状态
+         * @param s
          */
-        void upLocationView();
+        void upLocationView(String s);
     }
     
     interface Presenter extends AbstractPresenter<View> {

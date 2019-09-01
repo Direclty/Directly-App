@@ -38,7 +38,7 @@ public class RetrofitHelper implements HttpHelper {
     }
 
     @Override
-    public Observable<BaseResponse<List<LocationData>>> getLocationMessage(String content, String sender,
+    public Observable<BaseResponse<LocationData>> getLocationMessage(String content, String sender,
                                                                            String state,
                                                                            String readFlag,
                                                                            String actionTime) {

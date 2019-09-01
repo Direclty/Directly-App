@@ -30,22 +30,23 @@ public class LocationPresenter extends BasePresenter<LocationContract.View> impl
 
     @Override
     public void loadLocationMessage() {
-        Observable<BaseResponse<List<LocationData>>> locationMessage
+        Observable<BaseResponse<LocationData>> locationMessage
                 = mDataManager.getLocationMessage("测试", "13399858383",
                 "0","1", "1573441871000");
         addSubscribe(locationMessage
                 .compose(RxUtils.rxSchedulerHelper())
-                .subscribeWith(new BaseObserver<BaseResponse<List<LocationData>>>
+                .subscribeWith(new BaseObserver<BaseResponse<LocationData>>
                         (mView,"",true) {
             @Override
-            public void onNext(BaseResponse<List<LocationData>> listBaseResponse) {
+            public void onNext(BaseResponse<LocationData> listBaseResponse) {
                 if("true".equals(listBaseResponse.success)){
                     if(listBaseResponse.getData() != null){
-                        android.util.Log.d("zxl","数据是多少 = " + listBaseResponse
-                                .getData().size());
+                        android.util.Log.d("zxl","数据成功 = " + listBaseResponse.getData());
+                        mView.loadLocationView(listBaseResponse.getData().toString());
+                    }else {
+                        mView.loadLocationView("请求msg : " + listBaseResponse.getErrorMessage());
                     }
                     android.util.Log.d("zxl","请求成功 数据为空 = ");
-                    mView.loadLocationView();
                 }
             }
         }));
@@ -66,9 +67,11 @@ public class LocationPresenter extends BasePresenter<LocationContract.View> impl
                     if(locationDataBaseResponse.getData() != null){
                         android.util.Log.d("zxl","上传地理信息 = "
                                 + locationDataBaseResponse.getData().toString());
+                        mView.upLocationView(locationDataBaseResponse.getData().toString());
+                    }else {
+                        mView.upLocationView("请求msg : " + locationDataBaseResponse.getErrorMessage());
                     }
                     android.util.Log.d("zxl","请求成功 上传地理信息成功 = ");
-                    mView.upLocationView();
                 }
             }
         }));

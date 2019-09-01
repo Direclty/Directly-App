@@ -34,7 +34,7 @@ public interface HttpHelper {
      *location message
      * @return location
      */
-    Observable<BaseResponse<List<LocationData>>> getLocationMessage(String content, String sender, String state, String readFlag, String actionTime);
+    Observable<BaseResponse<LocationData>> getLocationMessage(String content, String sender, String state, String readFlag, String actionTime);
 
     /**
      *上传位置信息

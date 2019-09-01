@@ -54,7 +54,7 @@ public interface GeeksApis {
      */
     @POST("message")
     @FormUrlEncoded
-    Observable<BaseResponse<List<LocationData>>> getLocation(@Field("content") String content,
+    Observable<BaseResponse<LocationData>> getLocation(@Field("content") String content,
                                                              @Field("sender") String sender,
                                                              @Field("state") String state,
                                                              @Field("readFlag") String readFlag,
