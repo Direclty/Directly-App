@@ -1,6 +1,7 @@
 package com.directly.luckyboard.component.fragment.main.mainchild;
 
 import android.os.Bundle;
+import android.support.v4.widget.Space;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,6 +20,9 @@ import butterknife.OnClick;
  */
 public class LocationActivity extends BaseActivity<LocationPresenter> implements LocationContract.View {
 
+
+    @BindView(R.id.space)
+    Space space;
     @BindView(R.id.loading_animation)
     LottieAnimationView loadingAnimation;
     @BindView(R.id.bt_location_message)
@@ -29,17 +33,50 @@ public class LocationActivity extends BaseActivity<LocationPresenter> implements
     Button btUpLdMsg;
     @BindView(R.id.tv_up_ld_content)
     TextView tvUpLdContent;
+    @BindView(R.id.bt_up_contacts_msg)
+    Button btUpContactsMsg;
+    @BindView(R.id.tv_up_contacts_content)
+    TextView tvUpContactsContent;
     @BindView(R.id.loading_group)
     LinearLayout loadingGroup;
 
-    @OnClick(R.id.bt_location_message )
-    public void loadLocationMessage(){
+    @OnClick(R.id.bt_location_message)
+    public void loadLocationMessage() {
         mPresenter.loadLocationMessage();
     }
 
-    @OnClick(R.id.bt_up_ld_msg )
-    public void upLocationMessage(){
+    @OnClick(R.id.bt_up_ld_msg)
+    public void upLocationMessage() {
         mPresenter.upLocationMessage();
+    }
+
+    @OnClick(R.id.bt_up_contacts_msg)
+    public void upContactsMsg(){
+        mPresenter.upContactsMessage();
+    }
+
+    /**
+     * @param data 联系人信息
+     */
+    @Override
+    public void upContactsView(String data) {
+        tvUpContactsContent.setText(data);
+    }
+
+    /**
+     * @param msg
+     */
+    @Override
+    public void loadLocationView(String msg) {
+        tvLocationContent.setText(msg);
+    }
+
+    /**
+     * @param data
+     */
+    @Override
+    public void upLocationView(String data) {
+        tvUpLdContent.setText(data);
     }
 
     //add the location activity 2019-08-27 begin
@@ -52,7 +89,7 @@ public class LocationActivity extends BaseActivity<LocationPresenter> implements
     protected int getLayoutId() {
         return R.layout.loading_view;
     }
-    //add the location activity 2019-08-27 begin
+    //add the location activity 2019-08-27 end
 
     @Override
     protected void initEventAndData() {
@@ -87,22 +124,5 @@ public class LocationActivity extends BaseActivity<LocationPresenter> implements
     @Override
     public void reload() {
 
-    }
-
-    @Override
-    public void loadLocationView(String msg) {
-        tvLocationContent.setText(msg);
-    }
-
-    @Override
-    public void upLocationView(String msg2) {
-        tvUpLdContent.setText(msg2);
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
     }
 }

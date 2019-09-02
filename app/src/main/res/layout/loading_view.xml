@@ -28,14 +28,14 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:padding="@dimen/dp_10">
 
         <TextView
             android:id="@+id/tv_location_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:lines="16"
             tools:text="这是位置信息" />
     </ScrollView>
 
@@ -48,14 +48,33 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:padding="@dimen/dp_10">
 
         <TextView
             android:id="@+id/tv_up_ld_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:lines="16"
+            tools:text="上传成功" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/bt_up_contacts_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="上传位置信息" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="@dimen/dp_10">
+
+        <TextView
+            android:id="@+id/tv_up_contacts_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             tools:text="上传成功" />
     </ScrollView>
 </LinearLayout>

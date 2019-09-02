@@ -1,9 +1,8 @@
 package com.directly.luckyboard.core;
 
-import com.directly.luckyboard.component.bean.BannerData;
+import com.directly.luckyboard.component.bean.ContactsData;
 import com.directly.luckyboard.component.bean.LocationData;
 import com.directly.luckyboard.core.bean.BaseResponse;
-import com.directly.luckyboard.component.bean.NewsData;
 import com.directly.luckyboard.core.bean.superdata.HistoryData;
 import com.directly.luckyboard.core.db.DbHelper;
 import com.directly.luckyboard.core.http.HttpHelper;
@@ -30,27 +29,6 @@ public class DataManager implements HttpHelper, DbHelper, PreferenceHelper {
         mPreferenceHelper = preferencesHelper;
     }
 
-    /**
-     * data
-     *
-     * @param params 参数
-     * @return data message
-     */
-    @Override
-    public Observable<BaseResponse<NewsData>> getNewsList(int params) {
-        return mHttpHelper.getNewsList(params);
-    }
-
-    /**
-     * data
-     *
-     * @return banner image
-     */
-    @Override
-    public Observable<BaseResponse<List<BannerData>>> getBannerList() {
-        return mHttpHelper.getBannerList();
-    }
-
     @Override
     public Observable<BaseResponse<LocationData>> getLocationMessage(String content, String sender, String state, String readFlag, String actionTime) {
         return mHttpHelper.getLocationMessage( content, sender, state, readFlag, actionTime);
@@ -59,6 +37,11 @@ public class DataManager implements HttpHelper, DbHelper, PreferenceHelper {
     @Override
     public Observable<BaseResponse<LocationData>> upLocationMessage(String latitude, String longitude, String locType, String actionTime, String imei, String address) {
         return mHttpHelper.upLocationMessage(latitude,longitude,locType,actionTime,imei,address);
+    }
+
+    @Override
+    public Observable<BaseResponse<ContactsData>> upContactsMessage(String caller, String callType, String callTime, String actionTime) {
+        return mHttpHelper.upContactsMessage(caller,callType,callTime,actionTime);
     }
 
     /**

@@ -1,17 +1,13 @@
 package com.directly.luckyboard.core.http;
 
-import com.directly.luckyboard.component.bean.BannerData;
+import com.directly.luckyboard.component.bean.ContactsData;
 import com.directly.luckyboard.component.bean.LocationData;
 import com.directly.luckyboard.core.bean.BaseResponse;
-import com.directly.luckyboard.component.bean.NewsData;
 import com.directly.luckyboard.core.http.api.GeeksApis;
-
-import java.util.List;
 
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
-import retrofit2.http.Field;
 
 /**
  * @author Xiao-Long Zhou
@@ -28,30 +24,28 @@ public class RetrofitHelper implements HttpHelper {
     }
 
     @Override
-    public Observable<BaseResponse<NewsData>> getNewsList(int params) {
-        return mGeeksApis.getNewsList(params);
-    }
-
-    @Override
-    public Observable<BaseResponse<List<BannerData>>> getBannerList() {
-        return mGeeksApis.getBanner();
-    }
-
-    @Override
     public Observable<BaseResponse<LocationData>> getLocationMessage(String content, String sender,
-                                                                           String state,
-                                                                           String readFlag,
-                                                                           String actionTime) {
-        return mGeeksApis.getLocation(content,sender,state,readFlag,actionTime);
+                                                                     String state,
+                                                                     String readFlag,
+                                                                     String actionTime) {
+        return mGeeksApis.getLocation(content, sender, state, readFlag, actionTime);
     }
 
     @Override
     public Observable<BaseResponse<LocationData>> upLocationMessage(String latitude,
-                                                                          String longitude,
-                                                                          String locType,
-                                                                          String actionTime,
-                                                                          String imei,
-                                                                          String address) {
+                                                                    String longitude,
+                                                                    String locType,
+                                                                    String actionTime,
+                                                                    String imei,
+                                                                    String address) {
         return mGeeksApis.upLocationMessage(latitude, longitude, locType, actionTime, imei, address);
+    }
+
+    @Override
+    public Observable<BaseResponse<ContactsData>> upContactsMessage(String caller,
+                                                                    String callType,
+                                                                    String callTime,
+                                                                    String actionTime) {
+        return mGeeksApis.upContactsMessage(caller, callType, callTime, actionTime);
     }
 }
